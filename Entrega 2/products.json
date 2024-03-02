@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Harina",
+    "description": "0000 BlancaFlor",
+    "price": 2000,
+    "thumbnail": "Harina.jpg",
+    "code": "abc123",
+    "stock": 25,
+    "id": 1
+  },
+  {
+    "title": "Fideos",
+    "description": "Marolio",
+    "price": 100,
+    "thumbnail": "Fideos.jpg",
+    "code": "abc124",
+    "stock": 40,
+    "id": 2
+  },
+  {
+    "title": "Azucar",
+    "description": "Ledezma",
+    "price": 450,
+    "thumbnail": "Azucar.jpg",
+    "code": "abc125",
+    "stock": 50,
+    "id": 3
+  }
+ 
+]
