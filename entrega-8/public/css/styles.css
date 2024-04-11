@@ -1,0 +1,18 @@
+#mensajes{
+    margin-top: 20px;
+    width: 75%;
+    height: 350px;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 5px #333 inset;
+    padding: 5px;
+    background-color: rgb(204, 78, 78);
+}
+
+.mensaje{
+    border: 1px solid #080808;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: wheat;
+    display: inline-block;
+    margin-top: 5px;
+}
