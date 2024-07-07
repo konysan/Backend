@@ -14,6 +14,8 @@ const session = require('express-session')
 const {Server} = require('socket.io')
 const initPassport = require('./config/passport.config.js');
 const passport = require('passport');
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require ("swagger-ui-express")
 
 const PORT = 8080;
 
@@ -28,6 +30,22 @@ app.use(session(
         saveUninitialized: true
     }
 ))
+
+const options = {
+    definition: {
+        openapi:"3.0.0",
+        info: {
+            title: "API Coderhouse",
+            version:"1.0.0",
+            description: "Documentacion de la API del proyecto Coderhouse."
+        },
+    },
+    apis: ["./docs/*.yaml"]
+}
+const spec = swaggerJsdoc(options)
+
+
+
 
 //paso numero 2, inicializo en el app.js
 initPassport()
