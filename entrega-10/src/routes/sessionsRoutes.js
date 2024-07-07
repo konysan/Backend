@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const usersManager = require('../dao/DBmanager/usersManager.js')
-
 const passport = require('passport')
 const User = require('../dao/models/usersModels.js')
 let usuariosManager= new usersManager()

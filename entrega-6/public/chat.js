@@ -45,8 +45,7 @@ Swal.fire({
 
     inputMensaje.addEventListener("keyup", e=>{
         e.preventDefault()
-        // console.log(e, e.target.value)
-        if(e.code==="Enter" && e.target.value.trim().length>0){
+                if(e.code==="Enter" && e.target.value.trim().length>0){
             socket.emit("mensaje", nombre, e.target.value.trim())
             e.target.value=""
             e.target.focus()

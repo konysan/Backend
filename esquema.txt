@@ -1,0 +1,8 @@
+Redirige a recupero02.html con el token: r"/recupero02.html?token="+token).
+recupero02.html debe solicitar la contraseña, eliminarla y al enviar el formulario, ejecutar Math.floor(Math.random()*()+) (utilizando Math.floor(Math.random()*(cantNrosAGenerar)+aPartirDelNro)).
+Enviar una solicitud a /api/sessions/recupero03 para actualizar la información. En la vista, debemos obtener el token y enviarlo a /api/sessions/recupero03.
+Realizar una solicitud POST a /api/sessions/recupero03 que lea las contraseñas password y password2, las valide y las actualice.
+recupero01.html debe solicitar la dirección de correo electrónico asociada al usuario cuya contraseña se quiere recuperar mediante un formulario.
+Enviar una solicitud POST a /api/sessions/recupero01 para leer el correo electrónico del cuerpo de la solicitud, verificar si existe, generar un token JWT y enviar un enlace por correo: http://localhost:3000/api/sessions/recupero02?token=adsfaldkfjalkdsfj393939.dadf8. Luego, redirigir a recupero01.html con un mensaje de "revise su correo y siga los pasos...".
+Realizar una solicitud GET a /api/sessions/recupero02 para recuperar el token de los parámetros de la consulta, validarlo y redirigir a una vista o HTML donde se solicite la nueva contraseña y su confirmación. Al enviar el formulario, redirigir a /api/sessions/recupero03 para actualizar la información. La redirección a la vista debe incluir el token.
+Responder con el estado 200 y redirigir: `res.status(200).redirect(

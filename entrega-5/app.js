@@ -1,8 +1,8 @@
 const express = require('express');
-const productRoutes = require('./routes/productRoutes');
-const cartRoutes = require('./routes/cartRoutes');
+const productRoutes = require('./router/cartRoutes.js');
+const cartRoutes = require('./router/productRoutes.js');
 const handlebars = require('express-handlebars');
-const vistaRoutes = require('./routes/vistasRoutes');
+const vistaRoutes = require('./routes/vistasRoutes.js');
 const { Server } = require('socket.io');
 const path = require('path');
 

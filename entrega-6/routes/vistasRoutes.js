@@ -5,7 +5,7 @@ router.get("/", (req, res) => {
     res.render("home");
 });
 
-router.get("/chat", (req, res) => {  // Agregar manejo de la ruta /chat
+router.get("/chat", (req, res) => {  //chat ruta
     res.render("chat");
 });
 
