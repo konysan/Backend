@@ -122,21 +122,17 @@ router.post("/recoverpsw03", async (req, res) => {
     }
 
     try {
-        // Verificar y decodificar el token
         const decoded = jwt.verify(token, config.SECRET);
         const userId = decoded._id;
 
-        // Hash la nueva contraseña
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Actualizar la contraseña en la base de datos
         const updateResult = await User.updateOne({ _id: userId }, { password: hashedPassword });
 
         if (updateResult.nModified === 0) {
             return res.status(400).json({ error: "Usuario no encontrado para actualizar contraseña" });
         }
 
-        // Respondemos con éxito
         res.status(200).json({ message: "Contraseña actualizada exitosamente" });
     } catch (error) {
         console.error('Error al cambiar la contraseña:', error);

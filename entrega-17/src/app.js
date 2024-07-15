@@ -14,10 +14,10 @@ const session = require('express-session')
 const {Server} = require('socket.io')
 const initPassport = require('./config/passport.config.js');
 const passport = require('passport');
+const config = require("./config/config.js")
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require ("swagger-ui-express")
 
-const PORT = 8080;
 
 const app = express();
 const server = http.createServer(app); 
@@ -45,13 +45,10 @@ const options = {
 const spec = swaggerJsdoc(options)
 
 
-
-
-//paso numero 2, inicializo en el app.js
 initPassport()
 app.use(passport.initialize())
 app.use(passport.session()) //solo si usamos sesiones
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spec))
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -82,9 +79,9 @@ app.use('/carts', cartRoutes);
 app.use('/api/carts', cartRoutes);
 app.use('/', vistaRoutes);
 app.use('/realtimeproducts', vistaRoutes);
-app.use('/api/sessions', sessionsRoutes);
-app.use('/api/users', usersRoutes );
-app.use('mockingproducts', mockingproducts);
+app.use('/api/sessions', sessionsRoutes)
+app.use('/api/users', usersRoutes )
+app.use('mockingproducts', mockingproducts)
 
 app.get('*', (req, res) => {
     res.status(404).send("error 404, not found.");
@@ -93,8 +90,8 @@ app.get('*', (req, res) => {
 
 connectDB();
 
-server.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+server.listen(() => {
+    console.log(`Servidor corriendo en el puerto ${config.PORT}`);
 });
 
 
